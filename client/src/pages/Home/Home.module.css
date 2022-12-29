@@ -1,0 +1,17 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 180px;
+    filter: drop-shadow(5px 5px 10px rgba(252, 252, 191, 0.38));
+    cursor: pointer;
+}
+
+.header {
+    background: rgba(0, 0, 0, 0.21);
+}
+
