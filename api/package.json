@@ -4,6 +4,7 @@
   "description": "Backend para el proyecto de Henry bootcamop",
   "main": "index.js",
   "scripts": {
+    "getTypes": "nodemon ./src/routes/index.js",
     "start": "node index.js",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
