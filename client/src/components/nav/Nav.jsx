@@ -1,8 +1,40 @@
 import React from "react";
 import styles from "./Nav.module.css";
 import Search from "../search/Search";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    filterByTypes,
+    filterCreated,
+    orderByName,
+    orderByAttack
+} from "../../redux/actions";
 
 const Nav = () => {
+    const dispatch = useDispatch();
+    const allTypes = useSelector((state)=> state.types)
+    const handleFilterTypes = (e) => {
+        e.preventDefault();
+        dispatch(filterByTypes(e.target.value));
+        // setCurrentPage(1)
+    }
+
+    const handleFilterCreated = (e) => {
+        dispatch(filterCreated(e.target.value));
+        // setCurrentPage(1)
+    }
+
+    const handleSort = (e) => {
+        dispatch(orderByName(e.target.value));
+        // setCurrentPage(1)
+        // setOrden(`Ordenado ${e.target.value}`)
+    }
+
+    const handleSortAttack = (e) => {
+        dispatch(orderByAttack(e.target.value));
+        // setCurrentpage(1)
+        // setOrden
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.left}>
@@ -11,51 +43,35 @@ const Nav = () => {
             <div className={styles.center}>
                 <div className={styles.content}>
                     <label>Ordenar Alfabéticamente:</label>
-                    <select className={styles.select}>
-                        <option>Default</option>
-                        <option>A - z</option>
-                        <option>Z - A</option>
+                    <select onChange={handleSort} className={styles.select}>
+                        <option value="All">Default</option>
+                        <option value="asc">A - z</option>
+                        <option value="desc">Z - A</option>
                     </select>
                 </div>
                 <div className={styles.content}>
                     <label>Ordenar Por Tipo:</label>
-                    <select className={styles.select}>
-                        <option>normal</option>
-                        <option>fighting</option>
-                        <option>flying</option>
-                        <option>poison</option>
-                        <option>ground</option>
-                        <option>rock</option>
-                        <option>bug</option>
-                        <option>ghost</option>
-                        <option>steel</option>
-                        <option>fire</option>
-                        <option>water</option>
-                        <option>grass</option>
-                        <option>electric</option>
-                        <option>psychic</option>
-                        <option>ice</option>
-                        <option>dragon</option>
-                        <option>dark</option>
-                        <option>fairy</option>
-                        <option>unknown</option>
-                        <option>shadow</option>
+                    <select onChange={(e)=> handleFilterTypes(e)} className={styles.select}>
+                        <option value="All">normal</option>
+                        {allTypes?.map((e) => (
+                            <option key={e} value={e}>{e}</option>
+                        ))}
                     </select>
                 </div>
                 <div className={styles.content}>
                     <label>Ordenar Por Fuerza:</label>
-                    <select className={styles.select}>
-                        <option>Default</option>
-                        <option>max</option>
-                        <option>min</option>
+                    <select onChange={handleSortAttack} className={styles.select}>
+                        <option value="All">Default</option>
+                        <option value="max">max</option>
+                        <option value="min">min</option>
                     </select>
                 </div>
                 <div className={styles.content}>
                     <label>Ordenar por:</label>
-                    <select className={styles.select}>
-                        <option>Default</option>
-                        <option>Creados</option>
-                        <option>API</option>
+                    <select onChange={(e)=> handleFilterCreated(e)} className={styles.select}>
+                        <option value="All">Default</option>
+                        <option value="createdInDb">Creados</option>
+                        <option value="api">API</option>
                     </select>
                 </div>
             </div>

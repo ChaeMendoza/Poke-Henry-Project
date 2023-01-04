@@ -15,3 +15,60 @@
     background: rgba(0, 0, 0, 0.21);
 }
 
+/* Nav */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    padding: 20px;
+}
+
+.btn {
+    background: none;
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    font-weight: bold;
+    color: aliceblue;
+    border: 2px solid #6c6cd0;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: drop-shadow(5px 5px 10px rgba(252, 252, 191, 0.78));
+}
+
+.centro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.select {
+    background: rgba(0, 0, 0, 0.37);
+    border: 2px solid #6c6cd0;
+    height: 30px;
+    color: aliceblue;
+}
+
+/* Card */
+.acomodar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    
+}

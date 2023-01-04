@@ -1,8 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 385px;
-    width: 300px;
+    height: 300px;
+    width: 250px;
+    margin: 10px;
     background: rgba(0, 0, 0, 0.37);
     border: 2px solid #6c6cd0;
     border-radius: 14px;
@@ -27,12 +28,11 @@
 .types {
     display: flex;
     justify-content: center;
-    color: #6c6cd0;
+    color: #dddde0;
     text-transform: capitalize;
     padding: 0.25rem 0.9rem;
 }
 
 .img {
-    width: 200px;
-    height: 250px;
+    width: 150px;
 }

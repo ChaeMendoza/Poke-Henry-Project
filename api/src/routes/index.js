@@ -27,7 +27,7 @@ const apiInfo = async () => {
     }
     const arrData = arrPokemons.map(async (el) => await axios.get(el.url)); //las promesas me quedan pendientes
     //console.log(arrData);
-    let infoLista = await Promise.all(arrData).then((e) => {
+    return await Promise.all(arrData).then((e) => {
       const pokes = e.map((e) => e.data);
       pokes.map((p) => {
         arrDataPoke.push({
@@ -48,7 +48,6 @@ const apiInfo = async () => {
       });
       return arrDataPoke;
     });
-    return infoLista;
   } catch (error) {
     console.log(error);
   }
@@ -64,7 +63,7 @@ const dbInfo = async () => {
       },
     },
   });
-  const arrLista = await arrInfo.map((d) => {
+  return arrInfo.map((d) => {
     return {
       id: d.id,
       name: d.name,
@@ -79,13 +78,11 @@ const dbInfo = async () => {
       createdInDb: d.createdInDb,
     };
   });
-  return arrLista;
 };
 const allPokemons = async () => {
   const apiPokes = await apiInfo();
   const dbPokes = await dbInfo();
-  const todosPokes = apiPokes.concat(dbPokes);
-  return todosPokes;
+  return apiPokes.concat(dbPokes);
 };
 
 const nameApi = async (name) => {
@@ -130,7 +127,7 @@ const nameDb = async (name) => {
         },
       },
     });
-    const pokemonDb = nombreDb.map((p) => {
+    return nombreDb.map((p) => {
       return {
         id: p.id,
         name: p.name,
@@ -145,7 +142,6 @@ const nameDb = async (name) => {
         createdInDb: p.createdInDb,
       };
     });
-    return pokemonDb;
   } catch (error) {
     console.log(error);
   }
@@ -205,7 +201,7 @@ const getApiId = (id) => {
   try {
     return axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => {
       let info = res.data;
-      const detail = {
+      return {
         id: info.id,
         name: info.name,
         types:
@@ -220,7 +216,6 @@ const getApiId = (id) => {
         height: info.height,
         weight: info.weight,
       };
-      return detail;
     });
   } catch (error) {
     console.log(error);
@@ -251,11 +246,9 @@ const idDb = async (id) => {
 const allId = async (id) => {
   const uuid = id.includes("-");
   if (uuid) {
-    const pokeDb = await idDb(id);
-    return pokeDb;
+    return await idDb(id);
   } else {
-    const pokeApi = await getApiId(id);
-    return pokeApi;
+    return await getApiId(id);
   }
 };
 
@@ -314,16 +307,14 @@ const allTypes = async () => {
             },
           })
       );
-        return dataTypes
+      return dataTypes
     } else {
       return typesDb.map((e) => e.name);
     }
   } catch (error) {
     console.log(error);
   }
-}; 
-allTypes()
-
+};
 
 router.get("/types", async (req, res) => {
   const typesAll = await allTypes();

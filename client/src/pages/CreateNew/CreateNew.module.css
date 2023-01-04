@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.btn {
+    background: none;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    color: aliceblue;
+    border: 2px solid #6c6cd0;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: drop-shadow(5px 5px 10px rgba(252, 252, 191, 0.78));
+}
+
+.logo {
+    width: 300px;
+    margin-top: 20px;
+}
+
+.todo {
+    background: rgba(0, 0, 0, 0.45);
+    border: 3px solid #6c6cd0;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    width: 600px;
+}
+
+.cuadro {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.palabra {
+    font-size: 18px;
+}
+
+.contenedor {
+    background: #1d2023;
+    color: white;
+    border: 2px solid #6c6cd0;
+    border-radius: 10px;
+    height: 20px;
+}
+
+.check {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cuadritos {
+    background: #1d2023;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnSubmit {
+    background: none;
+    width: 400px;
+    height: 40px;
+    font-weight: bold;
+    color: aliceblue;
+    border: 2px solid #6c6cd0;
+    cursor: pointer;
+}
+
+.btnSubmit:hover {
+    filter: drop-shadow(5px 5px 10px rgba(252, 252, 191, 0.78));
+}

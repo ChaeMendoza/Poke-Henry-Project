@@ -76,7 +76,7 @@ export function getNamePokemons(payload) {
 
 export function filterByTypes(payload) {
     return {
-        type: "FILTER_CREATED",
+        type: "FILTER_BY_TYPES",
         payload,
     };
 }
@@ -91,6 +91,13 @@ export function filterCreated (payload) {
 export function orderByName(payload) {
     return {
         type: "ORDER_BY_NAME",
+        payload,
+    };
+}
+
+export function orderByAttack(payload) {
+    return {
+        type: "ORDER_BY_ATTACK",
         payload,
     };
 }

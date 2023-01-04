@@ -1,0 +1,24 @@
+.container {
+    color: #6c6cd0;
+}
+
+.ord {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background: none;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    font-weight: bold;
+    color: aliceblue;
+    border: 2px solid #6c6cd0;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: drop-shadow(5px 5px 10px rgba(252, 252, 191, 0.78));
+}
