@@ -11,7 +11,7 @@ function App() {
       <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route exact path="/home" element={<Home />} />
-          <Route exact path="/home/:id" element={<Details />} />
+          <Route exact path="/details/:id" element={<Details />} />
           <Route exact path="/create-new" element={<CreateNew />} />
       </Routes>
     </BrowserRouter>

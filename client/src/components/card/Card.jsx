@@ -6,7 +6,7 @@ const Card = ({id, image, name, types}) => {
     return (
         <div className={styles.container}>
             <img className={styles.img} src={image} alt="Img not found" />
-            <Link to={'/home/' + id} className={styles.name} >
+            <Link to={'/details/' + id} className={styles.name} >
                 <h3>{name}</h3>
             </Link>
             {types?.map((t) => (

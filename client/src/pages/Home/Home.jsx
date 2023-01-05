@@ -95,8 +95,8 @@ const Home = () => {
                         </div>
                         <div className={styles.content}>
                             <label>Ordenar Por Tipo:</label>
-                            <select onChange={handleFilterTypes} className={styles.select}>
-                                <option value="All">normal</option>
+                            <select onChange={(e) => handleFilterTypes(e)} className={styles.select}>
+                                <option value="All">todos</option>
                                 {allTypes?.map((e) => (
                                     <option key={e} value={e}>{e}</option>
                                 ))}
@@ -139,6 +139,7 @@ const Home = () => {
                                     width="200px"
                                     height="200px"
                                 />
+                                <h3>Cargando...</h3>
                             </div>
                         </div>
                     ) :
@@ -163,6 +164,9 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <footer className={styles.footer}>
+                <p className={styles.footerText}>©️ 2022. Made with ❤️ by <strong> <a className={styles.a} href="https://github.com/ChaeMendoza" target="_blank">Israel M</a> </strong></p>
+            </footer>
         </div>
     )
 }

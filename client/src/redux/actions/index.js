@@ -10,13 +10,13 @@ export function getPokemons() {
                 type: "GET_POKEMONS",
                 payload: json.data,
             });
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            console.log(error);
         }
-    }
+    };
 }
 
-export function getTypes(){
+export function getTypes() {
     return async function (dispatch) {
         try {
             const json = await axios.get(`${BACK_URL}/types`);
@@ -24,37 +24,37 @@ export function getTypes(){
                 type: "GET_TYPES",
                 payload: json.data,
             });
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            console.log(error);
         }
-    }
+    };
 }
 
 export function postPokemon(payload) {
     return async function (dispatch) {
         try {
-            const json = await axios.post(`${BACK_URL}/pokemon/` + payload);
+            const json = await axios.post(`${BACK_URL}/pokemon/`, payload);
+            console.log(json)
             return dispatch({
                 type: "POST_POKEMON",
-                payload: json.data
+                payload: json.data,
             });
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            console.log(error);
         }
-    }
+    };
 }
 
 export function getDetail(payload) {
     return async function (dispatch) {
         try {
-            const json = await axios.get(`${BACK_URL}/pokemons?name=` + payload);
+            const json = await axios.get(`${BACK_URL}/pokemons/` + payload);
             return dispatch({
-                type: "GET_NAME_POKEMONS",
+                type: "GET_DETAIL",
                 payload: json.data,
             });
-        } catch (e) {
-            alert("No encontramos ese nombre de pokemon");
-            console.log(e);
+        } catch (error) {
+            console.log(error);
         }
     };
 }
@@ -66,10 +66,10 @@ export function getNamePokemons(payload) {
             return dispatch({
                 type: "GET_NAME_POKEMONS",
                 payload: json.data,
-            })
+            });
         } catch (error) {
-            alert("El pokemon no fue encontrado");
-            console.log(error)
+            alert("El pokemon no fue encontrado con ese nombre");
+            console.log(error);
         }
     };
 }
@@ -81,7 +81,7 @@ export function filterByTypes(payload) {
     };
 }
 
-export function filterCreated (payload) {
+export function filterCreated(payload) {
     return {
         type: "FILTER_CREATED",
         payload,
@@ -102,7 +102,7 @@ export function orderByAttack(payload) {
     };
 }
 
-export function cleanDetail(){
+export function cleanDetail() {
     return {
         type: "CLEAN_DETAIL",
         payload: {},
@@ -115,10 +115,10 @@ export function deletePokemon(id) {
             const json = await axios.delete(`${BACK_URL}/pokemons/delete/` + id);
             return dispatch({
                 type: "DELETE_POKEMON",
-                pyaload: json.data,
+                payload: json.data,
             });
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            console.log(error);
         }
-    }
+    };
 }

@@ -69,6 +69,27 @@
     padding: 20px;
 }
 
-.card {
-    
+/* Loader */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footerText {
+    filter: drop-shadow(5px 5px 10px rgba(252, 252, 191, 0.38));
+}
+
+.a {
+    text-decoration: none;
+    color: aliceblue;
 }
