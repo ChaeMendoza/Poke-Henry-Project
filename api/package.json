@@ -4,6 +4,7 @@
   "description": "Backend para el proyecto de Henry bootcamop",
   "main": "index.js",
   "scripts": {
+    "co": "sui-mono commit",
     "getTypes": "nodemon ./src/routes/index.js",
     "start": "node index.js",
     "test": "mocha -w ./tests/**/*.spec.js"
@@ -28,10 +29,17 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "@s-ui/mono": "^2.34.0",
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
+    "standard": "^17.0.0",
     "supertest": "^6.0.1",
     "supertest-session": "^4.1.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   }
 }
